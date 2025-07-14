@@ -1,30 +1,49 @@
 .input {
-    position: relative;
     width: 80%;
-    margin: 20px auto;
-    border: none;
+    position: relative;
+    margin: 100px auto;
 }
 
 .input input {
-    width: 100%;
-    font-size: 30px;
+    width: 80%;
+    font-size: 1.2rem;
     z-index: 2;
-    padding-left: 5px;
+    padding: 10px 94px;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
         'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
         sans-serif3;
-        border-radius: 25px;
+    border-radius: 25px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border: 2px solid #5299D3;
+
 }
 
 .input label {
     position: absolute;
-    left: 7px;
+    left: 62px;
     top: 0;
     bottom: 0;
-    font-size: 30px;
-    opacity: 0.3;
+    font-size: 1.2rem;
     z-index: 1;
     user-select: none;
     display: flex;
     align-items: center;
+}
+
+.input input:focus {
+    outline: none;
+}
+
+.blurred {
+    filter: blur(4px);
+}
+
+@media (max-width:768px) {
+    .input {
+        width: 300px;
+    }
+
+    .input input {
+        width: 120px;
+    }
 }

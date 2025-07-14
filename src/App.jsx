@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "./components/Input";
 
 import cities from "./constants/cities";
@@ -6,6 +6,15 @@ import cities from "./constants/cities";
 function App() {
   const [hint, setHint] = useState("Enter a City Name");
   const [input, setInput] = useState("");
+  const [isFocused, setIsFocused] = useState(false);
+
+  useEffect(() => {
+    if (isFocused) {
+      document.body.classList.add("blur-background");
+    } else {
+      document.body.classList.remove("blur-background");
+    }
+  }, [isFocused]);
 
   const handleChange = (event) => {
     const value = event.target.value;
@@ -29,12 +38,14 @@ function App() {
 
   return (
     <>
-      <div>
-        <img src="" alt="" />
-      </div>
-      <div>
-        <Input handleChange={handleChange} hint={hint} input={input} />
-      </div>
+      <Input
+        handleChange={handleChange}
+        hint={hint}
+        input={input}
+        onFocus={() => setIsFocused(true)}
+        onBlur={() => setIsFocused(false)}
+      />
+      <div className={`main-wrapper ${isFocused ? "blurred" : ""}`}></div>
     </>
   );
 }
