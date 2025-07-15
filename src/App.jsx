@@ -28,7 +28,12 @@ function App() {
       setHint("Enter a City Name");
       return;
     }
-
+    if (/\d/.test(input)) {
+      setInput("");
+      setHint("Enter a City Name");
+      alert("Please enter a valid text without numbers");
+      return;
+    }
     const matchCity = cities.find((city) =>
       city.toLowerCase().startsWith(input.toLowerCase())
     );
